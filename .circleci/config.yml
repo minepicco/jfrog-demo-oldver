@@ -2,15 +2,17 @@ version: 2
 jobs:
   build:
     docker:
-      - image: debian:stretch
+      - image: minepicco/cci-aws:latest
 
     steps:
       - checkout
 
       - run:
-          name: Greeting
-          command: echo Hello, world.
+          name: Build Image
+          command: |
+          docker build -t $repo"/web:1.1" .
+          docker images
 
       - run:
-          name: Print the Current Time
-          command: date
+          name: Login
+          command: docker login $repo  -u $user -p $password
