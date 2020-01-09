@@ -16,3 +16,7 @@ jobs:
       - run:
           name: Login
           command: docker login $repo  -u $user -p $password
+          
+      - run:
+          name: Push image
+          command: docker push $repo"/web:1.1"
