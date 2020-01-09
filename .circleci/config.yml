@@ -10,13 +10,13 @@ jobs:
       - run:
           name: Build Image
           command: |
-            sudo docker build -t $image .
-            sudo docker images
+            docker build -t $image .
+            docker images
 
       - run:
           name: Login
-          command: sudo docker login $repo  -u $user -p $password
+          command: docker login $repo  -u $user -p $password
           
       - run:
           name: Push image
-          command: sudo docker push $image
+          command: docker push $image
