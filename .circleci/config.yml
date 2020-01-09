@@ -10,7 +10,7 @@ jobs:
       - run:
           name: Build Image
           command: |
-            wget -qO- https://get.docker.com/ | sh
+            # wget -qO- https://get.docker.com/ | sh
             docker ps
             docker build -t $repo"/web:1.1" .
             docker images
