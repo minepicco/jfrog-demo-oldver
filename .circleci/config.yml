@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: minepicco/cci-aws-docker:latest
+      - image: circleci/node
 
     steps:
       - checkout
