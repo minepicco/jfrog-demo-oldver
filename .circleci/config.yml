@@ -10,8 +10,8 @@ jobs:
       - run:
           name: Build Image
           command: |
-          docker build -t $repo"/web:1.1" .
-          docker images
+            docker build -t $repo"/web:1.1" .
+            docker images
 
       - run:
           name: Login
