@@ -10,15 +10,13 @@ jobs:
       - run:
           name: Build Image
           command: |
-            sudo service docker start
-            docker ps
-            docker build -t $repo"/web:1.1" .
-            docker images
+            sudo docker build -t $repo"/web:1.1" .
+            sudo docker images
 
       - run:
           name: Login
-          command: docker login $repo  -u $user -p $password
+          command: sudo docker login $repo  -u $user -p $password
           
       - run:
           name: Push image
-          command: docker push $repo"/web:1.1"
+          command: sudo docker push $repo"/web:1.1"
