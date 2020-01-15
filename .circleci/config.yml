@@ -24,4 +24,4 @@ jobs:
           name: Request for scan build
           command: |
             echo '{"artifactoryId": "'$jid'","buildName": "'$CIRCLE_PROJECT_REPONAME'","buildNumber": "'$CIRCLE_BUILD_NUM'"}' > temp.json
-            curl -X POST -u $user":"$password -H "Content-Type: application/json" $xurl"/api/v1/scanBuild" -d @temp.json | jq
+            curl -X POST -u $user":"$password -H "Content-Type: application/json" $xurl"/api/v1/scanBuild" -d @temp.json 
