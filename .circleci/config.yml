@@ -21,6 +21,7 @@ jobs:
             docker push "docker."$jfqdn"/"$CIRCLE_PROJECT_REPONAME":"$CIRCLE_BUILD_NUM
 
       - run:
-          name: Login and publish
+          name: Request for scan build
           command: |
-            curl -X POST -u $user":"$password -H "Content-Type: application/json" $xurl"/api/v1/scanBuild" -d '{"artifactoryId": $jid ,"buildName": $CIRCLE_PROJECT_REPONAME ,"buildNumber": $CIRCLE_BUILD_NUM }'
+            echo {"artifactoryId": '"$jid'","buildName": "'$CIRCLE_PROJECT_REPONAME'","buildNumber": "'$CIRCLE_BUILD_NUM'"}' > temp.json
+            curl -X POST -u $user":"$password -H "Content-Type: application/json" $xurl"/api/v1/scanBuild" -d @temp.json | jq
