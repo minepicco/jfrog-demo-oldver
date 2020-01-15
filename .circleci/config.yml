@@ -12,8 +12,7 @@ jobs:
           name: Build Image
           command: |
             echo $CIRCLE_PROJECT_REPONAME
-            docker build -t $image .
-            docker images
+            docker build -t "docker."$jfqdn"web:"$CIRCLE_PROJECT_REPONAME .
 
       - run:
           name: Login
@@ -21,5 +20,6 @@ jobs:
           
       - run:
           name: Push image
-          command: docker push $image
+          command: docker push "docker."$jfqdn"web:"$CIRCLE_PROJECT_REPONAME
+          
 
