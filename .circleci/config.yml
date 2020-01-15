@@ -23,4 +23,4 @@ jobs:
       - run:
           name: Login and publish
           command: |
-            curl -X POST -u $user":"$password -H "Content-Type: application/json" $xurl"/api/v1/scanBuild" -d '{"artifactoryId": '$jid',"buildName": '$CIRCLE_PROJECT_REPONAME',"buildNumber": '$CIRCLE_BUILD_NUM'}'
+            curl -X POST -u $user":"$password -H "Content-Type: application/json" $xurl"/api/v1/scanBuild" -d '{"artifactoryId": $jid ,"buildName": $CIRCLE_PROJECT_REPONAME ,"buildNumber": $CIRCLE_BUILD_NUM }'
