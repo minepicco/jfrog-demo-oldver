@@ -11,6 +11,7 @@ jobs:
       - run:
           name: Build Image
           command: |
+            echo $CIRCLE_PROJECT_REPONAME
             docker build -t $image .
             docker images
 
