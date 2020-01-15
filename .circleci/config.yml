@@ -15,10 +15,12 @@ jobs:
             docker build -t "docker."$jfqdn"/"$CIRCLE_PROJECT_REPONAME":"$CIRCLE_BUILD_NUM .
 
       - run:
-          name: Login and push
+          name: Login and Publish
           command: |
             docker login $repo  -u $user -p $password
             docker push "docker."$jfqdn"/"$CIRCLE_PROJECT_REPONAME":"$CIRCLE_BUILD_NUM
 
-
-
+      - run:
+          name: Login and publish
+          command: |
+            curl -X POST -u $user":"$password -H "Content-Type: application/json" "https://"$jfqdn"/api/v1/scanBuild" -d '{"artifactoryId": $jid ,"buildName": $CIRCLE_PROJECT_REPONAME ,buildNumber": $CIRCLE_BUILD_NUM }'
