@@ -15,11 +15,10 @@ jobs:
             docker build -t "docker."$jfqdn"/web:"$CIRCLE_PROJECT_REPONAME .
 
       - run:
-          name: Login
-          command: docker login $repo  -u $user -p $password
-          
-      - run:
-          name: Push image
-          command: docker push "docker."$jfqdn"/web:"$CIRCLE_PROJECT_REPONAME
-          
+          name: Login and push
+          command: |
+            docker login $repo  -u $user -p $password
+            docker push "docker."$jfqdn"/web:"$CIRCLE_PROJECT_REPONAME
+
+
 
