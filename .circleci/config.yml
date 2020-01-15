@@ -12,13 +12,13 @@ jobs:
           name: Build Image
           command: |
             echo $CIRCLE_PROJECT_REPONAME
-            docker build -t "docker."$jfqdn"/web:"$CIRCLE_PROJECT_REPONAME .
+            docker build -t "docker."$jfqdn"/"$CIRCLE_PROJECT_REPONAME":"$CIRCLE_BUILD_NUM .
 
       - run:
           name: Login and push
           command: |
             docker login $repo  -u $user -p $password
-            docker push "docker."$jfqdn"/web:"$CIRCLE_PROJECT_REPONAME
+            docker push "docker."$jfqdn"/"$CIRCLE_PROJECT_REPONAME":"$CIRCLE_BUILD_NUM
 
 
 
