@@ -25,7 +25,7 @@ jobs:
           command: |
             echo '{"artifactoryId": "'$jid'","buildName": "'$CIRCLE_PROJECT_REPONAME'","buildNumber": "'$CIRCLE_BUILD_NUM'"}' > temp.json
             curl -X POST -u $user":"$password -H "Content-Type: application/json" $xurl"/api/v1/scanBuild" -d @temp.json 
-      - run
+      - run:
           name: JFrogCLI config
           command: |
             jfrog rt config --user=$user --password=$password --url="https://"$jfqdn"/artifactory" $jid
