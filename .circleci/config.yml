@@ -28,7 +28,7 @@ jobs:
       - run:
           name: JFrogCLI config
           command: |
-            /./jfrog rt config --user=$user --password=$password --url="https://"$jfqdn"/artifactory" $jid
+            /./jfrog rt config --user=$user --password=$password --url="http://"$jfqdn"/artifactory" $jid
             /./jfrog rt ping
       - run:
           name: JFrogCLI artifact publish
@@ -37,4 +37,4 @@ jobs:
            /./jfrog rt bag $CIRCLE_PROJECT_REPONAME $CIRCLE_BUILD_NUM
            /./jfrog rt bp $CIRCLE_PROJECT_REPONAME $CIRCLE_BUILD_NUM
            /./jfrog rt bs $CIRCLE_PROJECT_REPONAME $CIRCLE_BUILD_NUM
-           /./jfrog rt bpr $CIRCLE_PROJECT_REPONAME $CIRCLE_BUILD_NUM docker
+           /./jfrog rt bpr $CIRCLE_PROJECT_REPONAME $CIRCLE_BUILD_NUM docker-local
