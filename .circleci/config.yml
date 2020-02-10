@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: macnicadevops/cc-build-image:0.8
+      - image: minepicco/cc-build-image:1.0
 
     steps:
       - checkout
