@@ -14,17 +14,6 @@ jobs:
             echo $CIRCLE_PROJECT_REPONAME
             docker build -t "docker-local."$jfqdn"/"$CIRCLE_PROJECT_REPONAME":"$CIRCLE_BUILD_NUM .
 
-      #- run:
-      #    name: Login and Publish
-      #    command: |
-      #      docker login $repo  -u $user -p $password
-      #      docker push "docker."$jfqdn"/"$CIRCLE_PROJECT_REPONAME":"$CIRCLE_BUILD_NUM
-
-      #- run:
-      #    name: Request for scan build
-      #    command: |
-      #      echo '{"artifactoryId": "'$jid'","buildName": "'$CIRCLE_PROJECT_REPONAME'","buildNumber": "'$CIRCLE_BUILD_NUM'"}' > temp.json
-      #      curl -X POST -u $user":"$password -H "Content-Type: application/json" $xurl"/api/v1/scanBuild" -d @temp.json 
       - run:
           name: JFrogCLI config
           command: |
