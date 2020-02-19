@@ -18,8 +18,6 @@
 ## 注意事項
 Pushするビルドがスキャン対象となるようなPolicyとWatchを予めXRAY側で設定しておく必要がある。
 
-XRAYの設定に基づき、ビルドの失敗、成功がジャッジされる
-
-<img src="attach:img/xraypolicy.png" alt="attach:xray-policy" title="attach:xray-policy" width="400">
+XRAYの設定に基づき、ビルドの失敗、成功がジャッジされる。
 
 ![xray-policy](img/xraypolicy.png)
