@@ -15,12 +15,11 @@ jobs:
             docker build -t "docker-local."$jfqdn"/"$CIRCLE_PROJECT_REPONAME":"$CIRCLE_BUILD_NUM .
 
       - run:
-          name: JFrogCLI config
+          name: Configure JFrog CLI 
           command: |
             /jfrog rt config --user=$user --password=$password --url="http://"$jfqdn"/artifactory" $jid
-            /jfrog rt ping
       - run:
-          name: JFrogCLI artifact publish
+          name: JFrogCLI Artifact publish, scan and promote
           command: |
            /jfrog rt bce $CIRCLE_PROJECT_REPONAME $CIRCLE_BUILD_NUM
            /jfrog rt bag $CIRCLE_PROJECT_REPONAME $CIRCLE_BUILD_NUM
