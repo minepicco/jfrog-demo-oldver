@@ -2,7 +2,7 @@
 
 ## CCIによる以下の処理を実施する
 
-% リポジトリ上のDockerfileを用いたDockerイメージのビルド
-% JFrogの認証
-% Artifactoryにビルドを追加
-% イメージのスキャンと、パスした場合のプロモート
+1. リポジトリ上のDockerfileを用いたDockerイメージのビルド
+1. JFrogの認証
+1. Artifactoryにビルドを追加
+1. イメージのスキャンと、パスした場合のプロモート
