@@ -1,4 +1,4 @@
-# jfrog-demo
+# JFrog-demo
 
 ## CCIによる以下の処理を実施する
 
