@@ -6,3 +6,11 @@
 1. JFrogの認証
 1. Artifactoryにビルドを追加
 1. イメージのスキャンと、パスした場合のプロモート
+
+## 変数
+- $jfqdn: CCIの環境変数に定義が必要/JFrog ArtifactoryのFQDN
+- $user: CCIの環境変数に定義が必要/JFrog Artifactoryのユーザー名
+- $password: CCIの環境変数に定義が必要/JFrog Artifactoryのパスワード
+- $jid: CCIの環境変数に定義が必要/JFrog ArtifactoryのID (現在のデモ環境のIDは"Artifactory1")
+- $CIRCLE_PROJECT_REPONAME: CCIで自動取得/CCIのプロジェクト名(Githubのリポ名)
+- $CIRCLE_BUILD_NUM:CCIで自動取得/CCIのビルド番号
