@@ -21,4 +21,5 @@ Pushするビルドがスキャン対象となるようなPolicyとWatchを予�
 XRAYの設定に基づき、ビルドの失敗、成功がジャッジされる
 
 <img src="attach:img/xraypolicy.png" alt="attach:xray-policy" title="attach:xray-policy" width="400">
+
 ![xray-policy](img/xraypolicy.png)
