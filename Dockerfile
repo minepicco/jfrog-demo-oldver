@@ -1,2 +1,2 @@
-From nginx:1.17
+From nginx:latest
 EXPOSE 80
