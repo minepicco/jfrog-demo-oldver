@@ -3,17 +3,14 @@ jobs:
   build:
     docker:
       - image: macnicadevops/cci-build-aws:1.0
-
     steps:
       - checkout
       - setup_remote_docker
-
       - run:
           name: Build Image
           command: |
             echo $CIRCLE_PROJECT_REPONAME
             docker build -t "docker-local."$jfqdn"/"$CIRCLE_PROJECT_REPONAME":"$CIRCLE_BUILD_NUM .
-
       - run:
           name: Configure JFrog CLI 
           command: |
