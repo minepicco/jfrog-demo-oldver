@@ -1,2 +1,3 @@
-From nginx:latest
-EXPOSE 80
+From ubuntu:12:04
+RUN apt-get update 
+RUN apt-get install -y curl wget
