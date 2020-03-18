@@ -1,23 +1,13 @@
-version: 2
-jobs:
-  build:
-    docker:
-      - image: macnicadevops/cci-build-aws:1.0
-    steps:
-      - checkout
-      - setup_remote_docker
-      - run:
-          name: Build Image
-          command: |
-            echo $CIRCLE_PROJECT_REPONAME
-            docker build -t "docker-local."$jfqdn"/"$CIRCLE_PROJECT_REPONAME":"$CIRCLE_BUILD_NUM .
-      - run:
-          name: Configure JFrog CLI 
-          command: |
-            /jfrog rt config --user=$user --password=$password --url="http://"$jfqdn"/artifactory" $jid
-      - run:
-          name: JFrogCLI Artifact publish, scan and promote
-          command: |
-           /jfrog rt bce $CIRCLE_PROJECT_REPONAME $CIRCLE_BUILD_NUM
-           /jfrog rt bp $CIRCLE_PROJECT_REPONAME $CIRCLE_BUILD_NUM
-           /jfrog rt bs $CIRCLE_PROJECT_REPONAME $CIRCLE_BUILD_NUM
+# Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
+version: 2.1
+# Use a package of configuration called an orb.
+orbs:
+  # Declare a dependency on the welcome-orb
+  welcome: circleci/welcome-orb@0.4.1
+# Orchestrate or schedule a set of jobs
+workflows:
+  # Name the workflow "welcome"
+  welcome:
+    # Run the welcome/run job in its own container
+    jobs:
+      - welcome/run
