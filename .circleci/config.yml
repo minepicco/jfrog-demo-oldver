@@ -19,5 +19,7 @@ jobs:
           name: JFrogCLI Artifact publish, scan and promote
           command: |
            /jfrog rt bce $CIRCLE_PROJECT_REPONAME $CIRCLE_BUILD_NUM
+           /jfrog rt bag $CIRCLE_PROJECT_REPONAME $CIRCLE_BUILD_NUM
            /jfrog rt bp $CIRCLE_PROJECT_REPONAME $CIRCLE_BUILD_NUM
            /jfrog rt bs $CIRCLE_PROJECT_REPONAME $CIRCLE_BUILD_NUM
+           /jfrog rt bpr $CIRCLE_PROJECT_REPONAME $CIRCLE_BUILD_NUM docker-local
